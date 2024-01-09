@@ -15,7 +15,7 @@ module SpreeMailchimpEcommerce
           title: product.name || "",
           description: product.description || "",
           url: "#{::Rails.application.routes.url_helpers.spree_url}products/#{product.slug}" || "",
-          vendor: product.category&.name || "",
+          vendor: product.vendor.try(:name) || "",
           image_url: image_url,
           variants: variants
         }.as_json
